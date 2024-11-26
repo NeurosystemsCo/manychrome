@@ -8,9 +8,9 @@ Simple functions, with an intention to allow the user to simply just type 'write
 > This package is currently being updated, and pip install is not working at the moment. It is in a public reposiory on GitHub so feel free to check out the code.
 
 # Installation
-pip install manychrome
+`pip install manychrome`
 
-To uninstall use: pip uninstall manychrome
+To uninstall use: `pip uninstall manychrome`
 
 # Background
 This package was created because I prefer to work from the terminal and I wanted a simple way to let certain reminders and text manipulation to easily grab my attention. I also find myself to to repeat code again and again, and therefore wanted to create a package that I could just pip install and use in my different environments without having to repeat it in different directories.
@@ -39,7 +39,7 @@ FindMe()
 
 # How to Use manychrome
 
-> Use pip install manychrome
+> Use `pip install manychrome`
 > Use pip uninstall manychrome to uninstall it
 
 ```python
@@ -68,9 +68,9 @@ save_favs()  # Creates an ini file to save the colour favourites to easily find 
 ```
 
 ### How to configure the colours when using Colorful()
-For Colorful() the configuration can either be set when initiating the instance, or by setting the values. This makes for a super simple view to organise the differences especially when several different instances are created. Text can contain multiple different combinations by using several instances of Colorful() for different fragments of the text.
+For `Colorful()` the configuration can either be set when initiating the instance, or by setting the values. This makes for a super simple view to organise the differences especially when several different instances are created. Text can contain multiple different combinations by using several instances of `Colorful()` for different fragments of the text.
 
-The different styles can also be combined so for example, text can be both underlined, and bold, and italics at the same time. If just wanting to print normally there is no need to do anything exept instantiate Colourful(). No values are required for normal printing of the text.
+The different styles can also be combined so for example, text can be both underlined, and bold, and italics at the same time. If just wanting to print normally there is no need to do anything exept instantiate `Colorful()`. No values are required for normal printing of the text.
 
 ```python
 c = Colorful(fg=1, bg=2, it=True)  # All config for Colorful() can be set inside here, or as shown below
@@ -86,7 +86,7 @@ c.ft = False  # Set ft as True for faint text. NOTE: This one is having varying 
 
 
 ## Functions of FindMe()
-See below for the current functions and config for class FindMe()
+See below for the current functions and config for class `FindMe()`
 
 ```python
 # Set the placeholders, no limit set for the number of placeholders.
@@ -112,7 +112,7 @@ The placeholders are to be wrapped in curly brackets in the template text, for w
 
 
 ## Functions of Stylish()
-See below for the current functions and config for class Stylish(). There is a substantial overlap and ineffective intermixing between classes so might all get moved to Colorful().
+See below for the current functions and config for class `Stylish()`. There is a substantial overlap and ineffective intermixing between classes so might all get moved to `Colorful()`.
 
 These provide super self explanatory and easy to remember ways to print text on the cli in whatever style. The primary function of the name of these will ignore other configuration settings, thus these can be used in combination where some text is highlighted, and depending of choice it will not be affected by that.
 
@@ -135,13 +135,11 @@ s.bg = 218
 # Can do s.it = True etc but the functions below aren't affected by that so they can be used in combination with each others.
 ```
 
-## Combinations
-Combine Findme() and Colorful()
-For example:
+## Example Usages and Combinations of instances
+
 
 ```python
 dogs = ["Max", "Bobby", "Dracula", "Leopold"]
 c = Colorful(fg=204, it=True)
-d = FindMe()
-d.listme([c.styleme(dog) for dog in dogs])
+c.listme([c.styleme(dog) for dog in dogs])
 ```
