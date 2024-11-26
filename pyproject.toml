@@ -8,14 +8,13 @@ version = "0.0.1"
 authors = [{ name = "maria Wenner", email = "mail@neurosystems.co" }]
 description = "A simple package make life easier when working with text from the CLI."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = [""]
-dynamic = ["version"]
+dependencies = ["dataclasses"]
 
 [project.scripts]
 manychrome_examples = "manychrome.examples:function"

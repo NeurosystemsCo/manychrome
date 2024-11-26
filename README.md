@@ -1,15 +1,20 @@
-# Manychrome readme
+# Manychrome
 
 This is a package predominantly created for those who prefer working from the CLI. It is to add colours and to style text so to easily make warnings, notification messages, or finding text when searching for it easily pop out.
 
-# Styletext module
-TODO
-update script name to module name
-want to use manychrome
+# Installation
+pip install manychrome
+
+To uninstall use: pip uninstall manychrome
+
+# Usage
+import manychrome
 
 ## Classes to import
 * Colorful()
 * Styleish()
+* FindMe()
+
 
 ## Colorful()
 See below for the current functions and config for class Colorful()
