@@ -50,3 +50,16 @@ class Stylish(dict, Colorful):
         v.fg = self.fg
         v.bg = self.bg
         print(v.styleme(txt))
+
+
+
+if __name__ == "__main__":
+
+    msg = "This text will be printed one way or another."
+    s = Stylish()
+    s.fg=89
+    s.bg=75
+    s.italics(msg)
+    s.swap(msg)
+    s.bold(msg)
+    s.underline("Read This!")
