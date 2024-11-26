@@ -99,7 +99,7 @@ def choose_color():
 
 
 
-class Styleish(dict, Colorful):
+class Stylish(dict, Colorful):
     def __missing__(self, key):
         return str(key)
 
@@ -230,7 +230,7 @@ document = "Once upon a time there was a {noun} who really wanted to {desire}. E
 doc2 = "Some other stuff here {text} and there is also a {doc}, and {someone} said they really wanted to go outside."
 
 # Could name this "LookMeUp or FindMe or WhereAmI or PopMeOut"
-wrap = Styleish(
+wrap = Stylish(
     noun=" doggo ",
     desire=" jump around ",
     verb=" a joyous attitude ",
@@ -259,7 +259,7 @@ c.write("Here is an example that has other colors.")
 
 
 
-# TODO >> need to organise the modules because right now the classes Colorful and Styleish seems to overlap, so need some structure later when I write more functions with these. Use colorful for colour, styleish for style. But then the FindMe should be elsewhere...
+# TODO >> need to organise the modules because right now the classes Colorful and Stylish seems to overlap, so need some structure later when I write more functions with these. Use colorful for colour, stylish for style. But then the FindMe should be elsewhere...
 
 # Example Code
 heading = " DOGGOS "

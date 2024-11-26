@@ -2,18 +2,45 @@
 
 This is a package predominantly created for those who prefer working from the CLI. It is to add colours and to style text so to easily make warnings, notification messages, or finding text when searching for it easily pop out.
 
+> [!NOTE]
+> This package is currently being updated, and pip install is not working at the moment. It is in a public reposiory on GitHub so feel free to check out the code.
+
 # Installation
 pip install manychrome
 
 To uninstall use: pip uninstall manychrome
 
-# Usage
-import manychrome
+# Background
+This package was created because I prefer to work from the terminal and I wanted a simple way to let certain reminders and text manipulation to easily grab my attention. I also find myself to to repeat code again and again, and therefore wanted to create a package that I could just pip install and use in my different environments without having to repeat it in different directories.
 
-## Classes to import
-* Colorful()
-* Styleish()
-* FindMe()
+I am new to coding, and this is my first package, so it might not yet follow all the right principles yet I hope it'll over time be helpful to others who also like some colour on their cli.
+
+My intention is to keep adding to it, and make it extremely user friendly.
+
+_sidenote_ the name manychrome was selected as a play on the word monochrome to reflect it's opposite nature.
+
+# What manychrome contains
+
+## Classes
+```python
+Colorful()
+Stylish()
+FindMe()
+```
+
+### What Colorful() can be used for
+
+
+# How to Use manychrome
+
+```python
+from colorful import Colorful
+from stylish import Stylish
+from findme import FindMe
+```
+
+
+
 
 
 ## Colorful()
@@ -75,8 +102,8 @@ styled.showme(document)
 
 
 
-## Styleish()
-See below for the current functions and config for class Styleish()
+## Stylish()
+See below for the current functions and config for class Stylish()
 
 ### Functions
 findme()
@@ -88,8 +115,8 @@ swap(words)
 bold(words)
 
 ### Config
-For styleish, set config
-s = Styleish()
+For stylish, set config
+s = Stylish()
 s.fg = 117
 s.bg = 218
 Can do s.it = True etc but the functions below aren't affected by that so they can be used in combination with each others.
