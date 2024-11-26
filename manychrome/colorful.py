@@ -1,4 +1,7 @@
+# Colorful: simple functions that provide the additional benefit of colours when viewing the data.
+
 from dataclasses import dataclass
+
 
 class ColorfulConfig:
     def __init__(self, *, default):
@@ -15,7 +18,6 @@ class ColorfulConfig:
 
     def __set__(self, obj, value):
         setattr(obj, self._name, (value))
-
 
 
 @dataclass
@@ -99,3 +101,10 @@ class Colorful:
 
         def reverseme(self, words):
             pass
+
+
+if __name__ == "__main__":
+
+    items = ["Enjoy the", "simplicity"]
+    c = Colorful(fg=33)
+    c.listme(items)

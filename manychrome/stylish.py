@@ -12,6 +12,7 @@ class Stylish(dict, Colorful):
             self.update({key: v})
         print(doc.format_map(self))
 
+    """The only reason for these below is to only have to type, 'italics' or 'bold' or whatever when wanting to print in that style. So that all that's needed is to remember what style one wants and can then just type that. Not sure why I didn't just add these to the class Colorful straight though..."""
     def italics(self, txt):
         v = Colorful()
         v.it = True

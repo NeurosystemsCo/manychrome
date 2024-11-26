@@ -2,44 +2,28 @@ from colorful import Colorful
 from findme import FindMe
 from stylish import Stylish
 
-# From Colorful
+# From Colorful: simple functions that provide the additional benefit of colours when viewing the data.
 """Simple function to print a list with the added bonus of ability to add colors and highlights"""
 heading = "Important"
 stuff = ["Super", "Cool", "Stuff"]
 
 """Use it to print a list"""
 ls = Colorful()
-ls.listmepretty(stuff)
+ls.listme(stuff)
 
 """Print the list in color with a heading"""
 c = Colorful(fg=213)
-c.listmepretty(stuff, heading="Amazingly", head_style=c)
+c.listme(stuff, heading="Amazingly", heading_style=c)
 
-"""Print the list in color (or not) with different config
-for the heading"""
+"""Print the list in color (or not) with different colors for the items vs the heading."""
 h = Colorful(fg=56, bg=1, bo=True)
 c = Colorful()
-c.listmepretty(stuff, heading=heading, head_style=h)
+c.listme(stuff, heading=heading, heading_style=h)
 
 
 
 
-v = FindMe()
-v.mirrorme("Ohreally?")
-v.listme(["here", "we", "have", "dogs", "cats", 1, 4, "teddy"])
-j = Colorful(fg=209, it=True)
-li = ["here", "we", "have", "dogs", "cats", 1, 4, "teddy"]
-bob = [j.styleme(str(item)) for item in li]
-v.listme(bob)
 
-m = FindMe()
-m.fg = 24
-
-mm = FindMe()
-mm.fg = 199
-mm.bg=57
-mm.bo = True
-m.listmepretty(li, heading=" SOME LIST ", head_style=mm)
 
 
 
@@ -76,7 +60,7 @@ c.write("Here is an example that has other colors.")
 
 
 
-# TODO >> need to organise the modules because right now the classes Colorful and Stylish seems to overlap, so need some structure later when I write more functions with these. Use colorful for colour, stylish for style. But then the FindMe should be elsewhere...
+# TODO >> need to organise the code because right now the classes Colorful and Stylish seems to overlap, so need some structure later when I write more functions with these. Use colorful for colour, stylish for style. But then the FindMe should be elsewhere...
 
 # Example Code
 heading = " DOGGOS "
@@ -90,4 +74,21 @@ d.listme([c.styleme(dog) for dog in dogs], heading=heading)
 nn = FindMe()
 nn.fg=47
 nn.bg=96
-nn.listmepretty(dogs, heading=heading, head_style=h)
+nn.listme(dogs, heading=heading, heading_style=h)
+
+
+v = FindMe()
+v.listme(["here", "we", "have", "dogs", "cats", 1, 4, "teddy"])
+j = Colorful(fg=209, it=True)
+li = ["here", "we", "have", "dogs", "cats", 1, 4, "teddy"]
+bob = [j.styleme(str(item)) for item in li]
+v.listme(bob)
+
+m = FindMe()
+m.fg = 24
+
+mm = FindMe()
+mm.fg = 199
+mm.bg=57
+mm.bo = True
+m.listme(li, heading=" SOME LIST ", heading_style=mm)
