@@ -108,7 +108,3 @@ if __name__ == "__main__":
     items = ["Enjoy the", "simplicity"]
     c = Colorful(fg=33)
     c.listme(items)
-
-    import os
-    print(os.get_exec_path())
-    os.system("echo which python")

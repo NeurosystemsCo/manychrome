@@ -21,16 +21,10 @@ c = Colorful()
 c.listme(stuff, heading=heading, heading_style=h)
 
 
-
-
-
-
-
-
-document = "Once upon a time there was a {noun} who really wanted to {desire}. Everybody knew it would take {verb} and {stuff}..."
+template = "Once upon a time there was a {noun} who really wanted to {desire}. Everybody knew it would take {verb} and {stuff}..."
 doc2 = "Some other stuff here {text} and there is also a {doc}, and {someone} said they really wanted to go outside."
 
-# Could name this "LookMeUp or FindMe or WhereAmI or PopMeOut"
+
 wrap = Stylish(
     noun=" doggo ",
     desire=" jump around ",
@@ -40,7 +34,7 @@ wrap = Stylish(
 wrap.fg = 123
 wrap.bg = 129
 wrap.it = True
-wrap.findme(document)
+wrap.findme(template)
 
 styled = FindMe(
     text="Named",
@@ -64,7 +58,7 @@ c.write("Here is an example that has other colors.")
 
 # Example Code
 heading = " DOGGOS "
-dogs = ["Max", "Bobby", "Dracula", "Leopold"]
+dogs = ["Ziggy", "Bobby", "Dracula", "Leopold"]
 d = FindMe()
 c = Colorful(fg=204, it=True)
 h = Colorful(fg=195, bg=204, bo=True)

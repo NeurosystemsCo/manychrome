@@ -4,7 +4,7 @@
 
 from setuptools import setup
 
-with open("README.md") as f:
+with open("README.rst") as f:
     readme = f.read()
 
 with open("LICENSE") as f:
@@ -12,7 +12,7 @@ with open("LICENSE") as f:
 
 setup(
     name="manychrome",
-    version="0.0.1",
+    version="0.1.0",
     description="A simple package to colour and style your text printed on the CLI.",
     long_description=readme,
     url = "https://github.com/NeurosystemsCo/manychrome",
