@@ -14,9 +14,9 @@ remember.
 Installation
 ============
 
-``pip install manychrome==0.1.0``
+``pip install manychrome``
 
-To uninstall use: ``pip uninstall manychrome==0.1.0``
+To uninstall use: ``pip uninstall manychrome``
 
 Background
 ==========
