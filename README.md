@@ -4,13 +4,11 @@ This is a package predominantly created for those who prefer working from the CL
 
 Simple functions, with an intention to allow the user to simply just type 'write', or 'listme' or similar to get things done. The function names are intended to be logical and selfexplanatory and easy to remember.
 
-> [!NOTE]
-> This package is currently being updated, and pip install is not working at the moment. It is in a public reposiory on GitHub so feel free to check out the code.
 
 # Installation
-`pip install manychrome`
+`pip install manychrome==0.1.0`
 
-To uninstall use: `pip uninstall manychrome`
+To uninstall use: `pip uninstall manychrome==0.1.0`
 
 # Background
 This package was created because I prefer to work from the terminal and I wanted a simple way to let certain reminders and text manipulation to easily grab my attention. I also find myself to to repeat code again and again, and therefore wanted to create a package that I could just pip install and use in my different environments without having to repeat it in different directories.
@@ -39,33 +37,87 @@ FindMe()
 
 # How to Use manychrome
 
-> Use `pip install manychrome`
-> Use pip uninstall manychrome to uninstall it
+> Use `pip install manychrome==0.1.0`
+> Use pip uninstall manychrome==0.1.0 to uninstall it
 
 ```python
-from colorful import Colorful
-from stylish import Stylish
-from findme import FindMe
+from manychrome.colorful import Colorful
+from manychrome.stylish import Stylish
+from manychrome.findme import FindMe
 ```
 
 
+## How to use Colorful()
 
+It is extremely easy to get text printed in different colours and styles using manychrome.
+To get coloured text simply configure the foreground colour (text color) by setting the fg value,
+the background colour by setting the bg colour, and the options of styles can be set by configuring True or False.
 
+### Use like a print() function
 
-## Functions of Colorful()
 ```python
-c.write(words)  # To simply print text (strings) with or without colour and style configuration. Use list me to instead view lists (it will pretty print the lists)
+c = Colorful(fg=127, bg=55, ul=True)
+words = "This is the text that is to be printed."
+c.write(words)
 
-c.styleme(words)  # Identical to write but returns the styed text instead of printing it, so it can be used for further text manipulation.
+c.fg=220
+c.bg=17
+c.write("This changed the color")
 
-c.listme(list)  # An extremely easy way to pretty print lists.
-c.listme(list, heading="ACTIONS", heading_style=c)  # Can add a heading to the list.
-c.listme(list, heading="DIFFERENT", heading_style=h)  # Can use a different instance for the heading style to make it stick out from the text in the list.
+c.bg=0
 
-choose_color()  # Just an extremely easy way to see the colours and it's corresponding value in order to select colours to use. Depending on theme settings and colours at the CLI or IDE used the colours might show up differently so good to be able to view them. This function does not belong to any class.
+c.write("This text is now written without having any background colour")
 
-save_favs()  # Creates an ini file to save the colour favourites to easily find the ones you like without having to remember the values or use choose_color(). This function does not belong to any class.
 ```
+
+### pretty print lists
+If you want to print a list in colour (or without setting any colours)
+you can use `c.listme(mylist)`.
+
+```python
+
+c = Colorful()
+mylist = ["Stuff", "Things", "Something", "Maybe"]
+c.listme(mylist)
+
+```
+
+### lists with an alternative heading
+You can add a heading to your list, that can have the same or a different colour and style than your list text.
+
+```python
+
+c = Colorful(fg=199, it=True)
+hst = Colorful(fg=220, bg=33, bo=True)
+mylist = ["Stuff", "Things", "Something", "Maybe"]
+c.listme(mylist, heading="Great Stuff", heading_style=hst)
+
+```
+
+### How to see colour options
+The colour functions are based on the xterm-256 colour codes, wrapping the text in anscii escape codes.
+Depending on if your IDE or terminal emulator (or whatever you use) uses 16 color mode or can display 256 colours, they will show up differently.
+
+The function `choose_color()` is provided to display the colours in your IDE or terminal.
+This function does not belong to any class so simply call the function.
+
+
+```python
+choose_color()
+
+```
+
+save_favs() is a simple function that creates an ini file with the number and then appends to this file.
+Currently it only saves one at a time, but I will update this one at a later stage.
+
+```python
+
+keep_me = "manychrome/examples/save_my_colors.ini"
+save_favs(keep_me)
+# It will ask you to input the number of the one you want to save
+
+```
+
 
 ### How to configure the colours when using Colorful()
 For `Colorful()` the configuration can either be set when initiating the instance, or by setting the values. This makes for a super simple view to organise the differences especially when several different instances are created. Text can contain multiple different combinations by using several instances of `Colorful()` for different fragments of the text.
