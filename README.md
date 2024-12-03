@@ -76,9 +76,9 @@ you can use `c.listme(mylist)`.
 
 ```python
 
-c = Colorful()
-mylist = ["Stuff", "Things", "Something", "Maybe"]
-c.listme(mylist)
+c = Colorful(fg=204, it=True)
+dogs = ["Ziggy", "Bobby", "Dracula", "Leopold"]
+c.listme(dogs)
 
 ```
 
@@ -89,8 +89,8 @@ You can add a heading to your list, that can have the same or a different colour
 
 c = Colorful(fg=199, it=True)
 hst = Colorful(fg=220, bg=33, bo=True)
-mylist = ["Stuff", "Things", "Something", "Maybe"]
-c.listme(mylist, heading="Great Stuff", heading_style=hst)
+dogs = ["Ziggy", "Bobby", "Dracula", "Leopold"]
+c.listme(dogs, heading=" Doggos ", heading_style=hst)
 
 ```
 
@@ -122,7 +122,12 @@ save_favs(keep_me)
 ### How to configure the colours when using Colorful()
 For `Colorful()` the configuration can either be set when initiating the instance, or by setting the values. This makes for a super simple view to organise the differences especially when several different instances are created. Text can contain multiple different combinations by using several instances of `Colorful()` for different fragments of the text.
 
-The different styles can also be combined so for example, text can be both underlined, and bold, and italics at the same time. If just wanting to print normally there is no need to do anything exept instantiate `Colorful()`. No values are required for normal printing of the text.
+The different styles can also be combined.
+For example, text can be both underlined, bold, and italics at the same time.
+If just wanting to print normally there is no need to do anything exept instantiate `Colorful()`.
+No values are required for normal printing of the text.
+
+See the available configuration options below.
 
 ```python
 c = Colorful(fg=1, bg=2, it=True)  # All config for Colorful() can be set inside here, or as shown below
@@ -139,6 +144,12 @@ c.ft = False  # Set ft as True for faint text. NOTE: This one is having varying 
 
 ## Functions of FindMe()
 See below for the current functions and config for class `FindMe()`
+
+Use it to update values in template text for documents, emails, invoices etc.
+Use it as an `in-text span function` to highlight specific sections of text.
+
+It will highlight whatever text you add in your configuration and that you wrap in curly brackets `{}` in your text.
+
 
 ```python
 # Set the placeholders, no limit set for the number of placeholders.
@@ -159,11 +170,12 @@ f.it=True
 # Prints the text.
 f.showme(template)
 ```
-The placeholders are to be wrapped in curly brackets in the template text, for where you want to change the text.
-
 
 
 ## Functions of Stylish()
+Stylish is basically a duplication of Colorful and there is a huge amount of overlap.
+This will most likely be updated to change overtime.
+
 See below for the current functions and config for class `Stylish()`. There is a substantial overlap and ineffective intermixing between classes so might all get moved to `Colorful()`.
 
 These provide super self explanatory and easy to remember ways to print text on the cli in whatever style. The primary function of the name of these will ignore other configuration settings, thus these can be used in combination where some text is highlighted, and depending of choice it will not be affected by that.
@@ -185,13 +197,4 @@ s = Stylish()
 s.fg = 117
 s.bg = 218
 # Can do s.it = True etc but the functions below aren't affected by that so they can be used in combination with each others.
-```
-
-## Example Usages and Combinations of instances
-
-
-```python
-dogs = ["Max", "Bobby", "Dracula", "Leopold"]
-c = Colorful(fg=204, it=True)
-c.listme([c.styleme(dog) for dog in dogs])
 ```

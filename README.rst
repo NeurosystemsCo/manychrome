@@ -11,16 +11,12 @@ type ‘write’, or ‘listme’ or similar to get things done. The function
 names are intended to be logical and selfexplanatory and easy to
 remember.
 
-   [!NOTE] This package is currently being updated, and pip install is
-   not working at the moment. It is in a public reposiory on GitHub so
-   feel free to check out the code.
-
 Installation
 ============
 
-``pip install manychrome``
+``pip install manychrome==0.1.0``
 
-To uninstall use: ``pip uninstall manychrome``
+To uninstall use: ``pip uninstall manychrome==0.1.0``
 
 Background
 ==========
@@ -73,31 +69,94 @@ emails, documents, and invoice creation etc.
 How to Use manychrome
 =====================
 
-   Use ``pip install manychrome`` Use pip uninstall manychrome to
-   uninstall it
+   Use ``pip install manychrome==0.1.0`` Use pip uninstall
+   manychrome==0.1.0 to uninstall it
 
 .. code:: python
 
-   from colorful import Colorful
-   from stylish import Stylish
-   from findme import FindMe
+   from manychrome.colorful import Colorful
+   from manychrome.stylish import Stylish
+   from manychrome.findme import FindMe
 
-Functions of Colorful()
------------------------
+How to use Colorful()
+---------------------
+
+It is extremely easy to get text printed in different colours and styles
+using manychrome. To get coloured text simply configure the foreground
+colour (text color) by setting the fg value, the background colour by
+setting the bg colour, and the options of styles can be set by
+configuring True or False.
+
+Use like a print() function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
-   c.write(words)  # To simply print text (strings) with or without colour and style configuration. Use list me to instead view lists (it will pretty print the lists)
+   c = Colorful(fg=127, bg=55, ul=True)
+   words = "This is the text that is to be printed."
+   c.write(words)
 
-   c.styleme(words)  # Identical to write but returns the styed text instead of printing it, so it can be used for further text manipulation.
+   c.fg=220
+   c.bg=17
+   c.write("This changed the color")
 
-   c.listme(list)  # An extremely easy way to pretty print lists.
-   c.listme(list, heading="ACTIONS", heading_style=c)  # Can add a heading to the list.
-   c.listme(list, heading="DIFFERENT", heading_style=h)  # Can use a different instance for the heading style to make it stick out from the text in the list.
+   c.bg=0
 
-   choose_color()  # Just an extremely easy way to see the colours and it's corresponding value in order to select colours to use. Depending on theme settings and colours at the CLI or IDE used the colours might show up differently so good to be able to view them. This function does not belong to any class.
+   c.write("This text is now written without having any background colour")
 
-   save_favs()  # Creates an ini file to save the colour favourites to easily find the ones you like without having to remember the values or use choose_color(). This function does not belong to any class.
+pretty print lists
+~~~~~~~~~~~~~~~~~~
+
+If you want to print a list in colour (or without setting any colours)
+you can use ``c.listme(mylist)``.
+
+.. code:: python
+
+
+   c = Colorful(fg=204, it=True)
+   dogs = ["Ziggy", "Bobby", "Dracula", "Leopold"]
+   c.listme(dogs)
+
+lists with an alternative heading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can add a heading to your list, that can have the same or a
+different colour and style than your list text.
+
+.. code:: python
+
+
+   c = Colorful(fg=199, it=True)
+   hst = Colorful(fg=220, bg=33, bo=True)
+   dogs = ["Ziggy", "Bobby", "Dracula", "Leopold"]
+   c.listme(dogs, heading=" Doggos ", heading_style=hst)
+
+How to see colour options
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The colour functions are based on the xterm-256 colour codes, wrapping
+the text in anscii escape codes. Depending on if your IDE or terminal
+emulator (or whatever you use) uses 16 color mode or can display 256
+colours, they will show up differently.
+
+The function ``choose_color()`` is provided to display the colours in
+your IDE or terminal. This function does not belong to any class so
+simply call the function.
+
+.. code:: python
+
+   choose_color()
+
+save_favs() is a simple function that creates an ini file with the
+number and then appends to this file. Currently it only saves one at a
+time, but I will update this one at a later stage.
+
+.. code:: python
+
+
+   keep_me = "manychrome/examples/save_my_colors.ini"
+   save_favs(keep_me)
+   # It will ask you to input the number of the one you want to save
 
 How to configure the colours when using Colorful()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,10 +168,12 @@ instances are created. Text can contain multiple different combinations
 by using several instances of ``Colorful()`` for different fragments of
 the text.
 
-The different styles can also be combined so for example, text can be
-both underlined, and bold, and italics at the same time. If just wanting
-to print normally there is no need to do anything exept instantiate
+The different styles can also be combined. For example, text can be both
+underlined, bold, and italics at the same time. If just wanting to print
+normally there is no need to do anything exept instantiate
 ``Colorful()``. No values are required for normal printing of the text.
+
+See the available configuration options below.
 
 .. code:: python
 
@@ -130,6 +191,13 @@ Functions of FindMe()
 ---------------------
 
 See below for the current functions and config for class ``FindMe()``
+
+Use it to update values in template text for documents, emails, invoices
+etc. Use it as an ``in-text span function`` to highlight specific
+sections of text.
+
+It will highlight whatever text you add in your configuration and that
+you wrap in curly brackets ``{}`` in your text.
 
 .. code:: python
 
@@ -151,11 +219,11 @@ See below for the current functions and config for class ``FindMe()``
    # Prints the text.
    f.showme(template)
 
-The placeholders are to be wrapped in curly brackets in the template
-text, for where you want to change the text.
-
 Functions of Stylish()
 ----------------------
+
+Stylish is basically a duplication of Colorful and there is a huge
+amount of overlap. This will most likely be updated to change overtime.
 
 See below for the current functions and config for class ``Stylish()``.
 There is a substantial overlap and ineffective intermixing between
@@ -187,12 +255,3 @@ How to use Stylish()
    s.fg = 117
    s.bg = 218
    # Can do s.it = True etc but the functions below aren't affected by that so they can be used in combination with each others.
-
-Example Usages and Combinations of instances
---------------------------------------------
-
-.. code:: python
-
-   dogs = ["Max", "Bobby", "Dracula", "Leopold"]
-   c = Colorful(fg=204, it=True)
-   c.listme([c.styleme(dog) for dog in dogs])
