@@ -7,14 +7,16 @@ class FindMe(dict, Colorful):
 
 
     def showme(self, doc):  # Could name to makemepop
-        """Add placeholders and alternative text and set the configuration of colors. Can also be used for invoicing, emails, etc to change placeholder text to something different."""
+        """Add placeholders and alternative text and set the configuration
+        of colors. Can also be used for invoicing, emails, etc to change
+        placeholder text to something different."""
         for key, value in self.items():
             v = Colorful()
             v = self.styleme(value)
             self.update({key: v})
         print(doc.format_map(self))
 
-    def reverseme(self, words):
+    def changeme(self, words):
         pass
 
     def mirrorme(self, words):
@@ -22,7 +24,8 @@ class FindMe(dict, Colorful):
         print(f"abc {bg["bg"]} def")
 
 
-    def but_why(self, doc):  # To find why, what, and how sections of text for text analysis, text edit, and text manipulation purposes.
+    def but_why(self, doc):  # To find why, what, and how sections
+    # of text for text analysis, text edit, and text manipulation purposes.
         """
         a = "Get text"
         b = "Get list of why words from db"
